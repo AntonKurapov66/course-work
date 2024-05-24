@@ -1,0 +1,28 @@
+all:
+  children:
+    webservers:
+      hosts:
+        webserver-1:
+          ansible_host: yandex_compute_instance.webserver-1.network_interface.0.ip_address
+          ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q user@<external_ip_address_bastion>"'
+        webserver-2:
+          ansible_host: <internal_ip_address_webserver-2>
+          ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q user@<external_ip_address_bastion>"'
+    monitoring:
+      hosts:
+        prometheus-server:
+          ansible_host: <internal_ip_address_prometheus-server>
+    logging:
+      hosts:
+        elasticsearch-server:
+          ansible_host: <internal_ip_address_elasticsearch-server>
+        kibana-server:
+          ansible_host: <external_ip_address_kibana-server>
+    observability:
+      hosts:
+        grafana-server:
+          ansible_host: <external_ip_address_grafana-server>
+    bastion:
+      hosts:
+        bastion:
+          ansible_host: <external_ip_address_bastion>
