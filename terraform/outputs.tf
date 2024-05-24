@@ -45,25 +45,3 @@ output "internal_ip_address_elasticsearch-server" {
 output "external_ip_address_web-alb" {
   value = yandex_alb_load_balancer.web-alb.listener.0.endpoint.0.address.0.external_ipv4_address
 }
-
-# output "FQDN_elasticsearch-server" {
-#   value = yandex_compute_instance.elasticsearch-server.fqdn
-# }
-# output "FQDN_prometheus-server" {
-#   value = yandex_compute_instance.prometheus-server.fqdn
-# }
-# output "FQDN_kibana-server" {
-#   value = yandex_compute_instance.kibana-server.fqdn
-# }
-# output "FQDN_grafana-server" {
-#   value = yandex_compute_instance.grafana-server.fqdn
-# }
-# output "FQDN_webserver-2" {
-#   value = yandex_compute_instance.webserver-2.fqdn
-# }
-# output "FQDN_webserver-1" {
-#   value = yandex_compute_instance.webserver-1.fqdn
-# }
-# output "FQDN_bastion" {
-#   value = yandex_compute_instance.bastion.fqdn
-# }
