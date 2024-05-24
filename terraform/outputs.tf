@@ -49,11 +49,11 @@ output "FQDN_kibana-server" {
   value = yandex_compute_instance.kibana-server.fqdn
 }
 #output prometheus
-output "external_ip_address_prometheus-server" {
-  value = yandex_compute_instance.prometheus-server.network_interface.0.nat_ip_address
-}
 output "internal_ip_address_prometheus-server" {
   value = yandex_compute_instance.prometheus-server.network_interface.0.ip_address
+}
+output "FQDN_prometheus-server" {
+  value = yandex_compute_instance.prometheus-server.fqdn
 }
 #output elasticsearch
 output "internal_ip_address_elasticsearch-server" {
