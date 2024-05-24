@@ -52,6 +52,10 @@ resource "yandex_compute_instance" "webserver-1" {
   metadata = {
     user-data = "${file("./meta.yml")}"
   }
+  provisioner "local-exec" {
+    command = "echo '${self.network_interface.0.ip_address}' >> ../Ansible/inventory.yml"
+  }
+  depends_on = [yandex_vpc_network.vpc]
 }
 #Создаем 2-ой вебсервер
 resource "yandex_compute_instance" "webserver-2" {
