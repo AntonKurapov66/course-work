@@ -1,0 +1,17 @@
+---
+- name: Enable TCP forwarding on the bastion host
+  hosts: bastion
+  become: yes
+  tasks:
+    - name: Uncomment the 'AllowTcpForwarding yes' line in sshd_config
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^s*#?s*AllowTcpForwardings+no'
+        line: 'AllowTcpForwarding yes'
+        backrefs: yes
+        state: present
+    
+    - name: Restart SSH service to apply changes
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
