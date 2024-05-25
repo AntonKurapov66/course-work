@@ -39,7 +39,7 @@ resource "yandex_compute_instance" "webserver-1" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
       type     = "network-ssd"
     }
@@ -65,7 +65,7 @@ resource "yandex_compute_instance" "webserver-2" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
       type     = "network-ssd"
     }
@@ -91,7 +91,7 @@ resource "yandex_compute_instance" "prometheus-server" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
       type     = "network-ssd"
     }
@@ -117,7 +117,7 @@ resource "yandex_compute_instance" "elasticsearch-server" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 100
       type     = "network-hdd"
     }
@@ -143,7 +143,7 @@ resource "yandex_compute_instance" "kibana-server" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
       type     = "network-hdd"
     }
@@ -169,7 +169,7 @@ resource "yandex_compute_instance" "grafana-server" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
       type     = "network-hdd"
     }
@@ -195,7 +195,7 @@ resource "yandex_compute_instance" "bastion" {
   }
   boot_disk {
     initialize_params {
-      image_id = "fd8pbf0hl06ks8s3scqk"
+      image_id = "fd8idq8k33m9hlj0huli"
       size     = 20
       type     = "network-hdd"
     }
