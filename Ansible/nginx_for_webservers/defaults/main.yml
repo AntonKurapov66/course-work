@@ -1,2 +1,5 @@
 ---
 # defaults file for nginx_for_webservers
+page_title: "Добро пожаловать на мой сайт"
+content_heading: "Сайт для практики"
+content_body: "Этот сайт был создан для проверки знаний"
