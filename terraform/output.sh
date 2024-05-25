@@ -16,18 +16,26 @@ ansible_user=super_user
 ansible_ssh_private_key_file=/home/admin/.ssh/id_rsa
 
 [bastion]
-bastion ansible_host=$BASTION_EXTERNAL_IP
+bastion-server ansible_host=$BASTION_EXTERNAL_IP
+
+[non_bastion:children]
+webservers
+elk
+monitoring
+
+[non_bastion:vars]
+ansible_ssh_common_args='-o ProxyJump={{ansible_user}}@$BASTION_EXTERNAL_IP'
 
 [webservers]
-webserver-1 ansible_host=$WEBSERVER_1_INTERNAL_IP ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -q super_user@BASTION_EXTERNAL_IP"'
-webserver-2 ansible_host=$WEBSERVER_2_INTERNAL_IP ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -q super_user@BASTION_EXTERNAL_IP"'
+webserver-1 ansible_host=$WEBSERVER_1_INTERNAL_IP 
+webserver-2 ansible_host=$WEBSERVER_2_INTERNAL_IP 
 
 [elk]
-elasticsearch-server ansible_host=$ELASTICSEARCH_INTERNAL_IP ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -q super_user@BASTION_EXTERNAL_IP"'
-kibana-server ansible_host=$KIBANA_INTERNAL_IP ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -q super_user@BASTION_EXTERNAL_IP"'
+elasticsearch-server ansible_host=$ELASTICSEARCH_INTERNAL_IP 
+kibana-server ansible_host=$KIBANA_INTERNAL_IP 
 
 [monitoring]
-prometheus-server ansible_host=$PROMETHEUS_INTERNAL_IP ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -q super_user@BASTION_EXTERNAL_IP"'
-grafana-server ansible_host=$GRAFANA_INTERNAL_IP ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -o StrictHostKeyChecking=no -q super_user@BASTION_EXTERNAL_IP"'
+prometheus-server ansible_host=$PROMETHEUS_INTERNAL_IP 
+grafana-server ansible_host=$GRAFANA_INTERNAL_IP 
 
 EOF
