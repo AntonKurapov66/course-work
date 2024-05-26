@@ -1,5 +1,19 @@
 ---
 # tasks file for grafana_server
+- name: Обновление кэша репозиториев
+  apt:
+    update_cache: yes
+
+- name: Добавление репозитория APT для Grafana
+  apt_repository:
+    repo: 'deb https://packagecloud.io/grafana/stable/debian/ stretch main'
+    state: present
+
+- name: Импорт GPG ключа репозитория Grafana
+  apt_key:
+    url: https://packagecloud.io/gpg.key
+    state: present
+
 - name: Установка Grafana
   apt:
     name: grafana
