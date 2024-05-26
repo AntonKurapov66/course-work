@@ -1,4 +1,2 @@
 ---
 # defaults file for nginx_log_exporter
-nginx_log_exporter_version: "0.1.0"
-nginx_log_exporter_download_url: "https://github.com/mtg/nginx-log-exporter/releases"

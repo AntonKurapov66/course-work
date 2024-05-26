@@ -1,8 +1,7 @@
 ---
 # handlers file for nginx_log_exporter
-- name: Start nginx_log_exporter
+- name: Перезапуск Nginx Log Exporter
   systemd:
-    name: nginx_log_exporter
-    state: started
-    enabled: yes
-    daemon_reload: yes
+    name: nginx-prometheus-log-exporter
+    state: restarted
+  listen: "restart nginx log exporter"

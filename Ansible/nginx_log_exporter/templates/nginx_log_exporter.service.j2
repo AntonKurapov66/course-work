@@ -1,9 +1,0 @@
-[Unit]
-Description=Nginx Log Exporter
-
-[Service]
-User=nginx
-ExecStart=/opt/nginx-log-exporter/nginx-log-exporter --log-file=/var/log/nginx/access.log
-
-[Install]
-WantedBy=multi-user.target
