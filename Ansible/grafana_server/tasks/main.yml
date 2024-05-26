@@ -22,13 +22,14 @@
 
 - name: Добавление источника данных Prometheus в Grafana
   grafana_datasource:
-    url: "http://{{ hostvars['prometheus-server']['ansible_host'] }}:9090"
+    ds_url: "http://{{ hostvars['prometheus-server']['ansible_host'] }}:9090"
     name: Prometheus
-    type: prometheus
+    ds_type: prometheus
     state: present
-    access: proxy
+    access: proxy   
     basic_auth_user: 'username'
     basic_auth_password: 'password'
     with_credentials: no
     is_default: yes
+    sslmode: 'disable'
   delegate_to: localhost
