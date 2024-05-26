@@ -1,2 +1,3 @@
 ---
 # defaults file for nginx_log_exporter
+nginx_log_exporter_version: "1.11.0"

@@ -1,9 +1,23 @@
 ---
-# tasks file for nginx_log_exporter
-- name: Установка Nginx Log Exporter
-  apt:
-    name: nginx-prometheus-log-exporter
-    state: latest
-    update_cache: yes
-  notify: 
-    - restarted Nginx Log Exporter
+# tasks file for nginx_log_exporter 
+- name: Скачивание архива Nginx Log Exporter
+  get_url:
+    url: "https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v{{ nginx_log_exporter_version }}/prometheus-nginxlog-exporter_{{ nginx_log_exporter_version }}_linux_amd64.tar.gz"
+    dest: "/tmp/nginx_log_exporter.tar.gz"
+
+- name: Создание директории для Nginx Log Exporter
+  file:
+    path: "/opt/nginx-log-exporter"
+    state: directory
+
+- name: Распаковка архива Nginx Log Exporter
+  unarchive:
+    src: "/tmp/nginx_log_exporter.tar.gz"
+    dest: "/opt/nginx-log-exporter"
+    remote_src: yes
+
+- name: Копирование systemd service файла для Nginx Log Exporter
+  template:
+    src: nginx_log_exporter.service.j2
+    dest: "/etc/systemd/system/nginx_log_exporter.service"
+  notify: Start nginx_log_exporter
