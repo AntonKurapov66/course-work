@@ -2,4 +2,4 @@
 - hosts: prometheus-server
   become: yes
   roles:
-    - prometheus_server
+    - prometheus-server
