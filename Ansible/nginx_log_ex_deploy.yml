@@ -1,0 +1,6 @@
+---
+- name: Deploy nginx-log-exporter and web page
+  hosts: webservers
+  become: yes
+  roles:
+    - nginx_log_exporter
