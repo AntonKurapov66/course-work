@@ -1,5 +1,12 @@
 ---
 # tasks file for nginx_log_exporter 
+- name: Создание пользователя для Nginx Log Exporter
+  user:
+    name: prometheus
+    system: yes
+    shell: /usr/sbin/nologin
+    createhome: no
+    
 - name: Скачивание архива Nginx Log Exporter
   get_url:
     url: "https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v{{ nginx_log_exporter_version }}/prometheus-nginxlog-exporter_{{ nginx_log_exporter_version }}_linux_amd64.tar.gz"
