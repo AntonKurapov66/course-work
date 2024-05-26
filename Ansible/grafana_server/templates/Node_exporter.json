@@ -77,7 +77,7 @@
               "format": "time_series",
               "interval": "1m",
               "intervalFactor": 5,
-              "legendFormat": "{{cpu}}",
+              "legendFormat": "cpu",
               "refId": "A"
             }
           ],
