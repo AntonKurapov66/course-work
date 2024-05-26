@@ -1,0 +1,6 @@
+---
+- name: Deploy Grafana 
+  hosts: grafana-server
+  become: yes
+  roles:
+    - grafana_server

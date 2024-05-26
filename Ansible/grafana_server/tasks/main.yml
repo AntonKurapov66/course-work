@@ -1,2 +1,36 @@
 ---
 # tasks file for grafana_server
+- name: Добавление репозитория APT для Grafana
+  apt_repository:
+    repo: 'deb https://packages.grafana.com/oss/deb stable main'
+    state: present
+
+- name: Импорт GPG ключа репозитория Grafana
+  apt_key:
+    url: https://packages.grafana.com/gpg.key
+    state: present
+
+- name: Установка Grafana
+  apt:
+    name: grafana
+    state: latest
+    update_cache: yes
+
+- name: Включение и запуск Grafana
+  systemd:
+    name: grafana-server
+    enabled: yes
+    state: started
+
+- name: Добавление источника данных Prometheus в Grafana
+  grafana_datasource:
+    url: http://<your_prometheus_server_ip>:9090
+    name: Prometheus
+    type: prometheus
+    state: present
+    access: proxy
+    basic_auth_user: 'username'
+    basic_auth_password: 'password'
+    with_credentials: no
+    is_default: yes
+  delegate_to: localhost
