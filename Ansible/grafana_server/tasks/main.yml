@@ -6,7 +6,7 @@
 
 - name: Добавление репозитория APT для Grafana
   apt_repository:
-    repo: 'deb https://packagecloud.io/grafana/stable/debian/ stretch main'
+    repo: 'deb https://mirror.yandex.ru/mirrors/packages.grafana.com/oss/deb stable main'
     state: present
 
 - name: Импорт GPG ключа репозитория Grafana
