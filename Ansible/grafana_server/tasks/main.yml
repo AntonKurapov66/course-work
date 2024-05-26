@@ -28,8 +28,13 @@
     - restart grafana
 
 - name: Копирование дашбордов Grafana
-  template:
+  copy:
     src: Node_exporter.json
     dest: /etc/grafana/provisioning/dashboards/Node_exporter.json
+    owner: grafana
+    group: grafana
+    mode: 0644
+  with_items:
+    - system_metrics
   notify:
     - restart grafana
