@@ -1,26 +1,7 @@
 ---
 # tasks file for node_exporter
-- name: Загрузка Node Exporter архива
-  get_url:
-    url: "https://github.com/prometheus/node_exporter/releases/download/{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
-    dest: "/tmp/node_exporter.tar.gz"
-    validate_certs: yes
-
-- name: Распаковка Node Exporter архива
-  unarchive:
-    src: "/tmp/node_exporter.tar.gz"
-    dest: "/opt"
-    creates: "/opt/node_exporter-{{ node_exporter_version }}.linux-amd64"
-    remote_src: yes
-
-- name: Копирование systemd service файла
-  template:
-    src: node_exporter.service.j2
-    dest: "/etc/systemd/system/node_exporter.service"
-
-- name: Включение и запуск Node Exporter
-  systemd:
-    name: node_exporter
-    enabled: yes
-    state: started
-    daemon_reload: yes
+- name: Установка Node Exporter
+  apt:
+    name: prometheus-node-exporter
+    state: latest
+    update_cache: yes

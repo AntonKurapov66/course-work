@@ -1,7 +1,7 @@
 ---
 # handlers file for node_exporter
-- name: перезапуск node_exporter
+- name: Перезапуск Node Exporter
   systemd:
-    name: node_exporter
+    name: prometheus-node-exporter
     state: restarted
-    daemon_reload: yes
+  listen: "restart node exporter"
