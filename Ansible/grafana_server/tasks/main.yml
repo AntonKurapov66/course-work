@@ -4,21 +4,15 @@
   apt:
     update_cache: yes
 
-- name: Добавление репозитория APT для Grafana
-  apt_repository:
-    repo: 'deb https://mirror.yandex.ru/mirrors/packages.grafana.com/oss/deb stable main'
-    state: present
+- name: Скачивание деб-пакета Grafana
+  get_url:
+    url: "https://dl.grafana.com/oss/release/grafana_9.2.4_amd64.deb"
+    dest: "/tmp/grafana_9.2.4_amd64.deb"
 
-- name: Импорт GPG ключа репозитория Grafana
-  apt_key:
-    url: https://packagecloud.io/gpg.key
-    state: present
-
-- name: Установка Grafana
+- name: Установка пакета Grafana
   apt:
-    name: grafana
-    state: latest
-    update_cache: yes
+    deb: "/tmp/grafana_9.2.4_amd64.deb"
+    state: present
 
 - name: Включение и запуск Grafana
   systemd:
