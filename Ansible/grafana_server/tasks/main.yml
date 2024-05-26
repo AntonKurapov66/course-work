@@ -27,9 +27,9 @@
   notify:
     - restart grafana
 
-- name: Копирование дашбордов Grafana
-  template:
-    src: Node_exporter.json.j2
-    dest: /etc/grafana/provisioning/dashboards/Node_exporter.json
-  notify:
-    - restart grafana
+#- name: Копирование дашбордов Grafana
+#  template:
+#    src: Node_exporter.json.j2
+#    dest: /etc/grafana/provisioning/dashboards/Node_exporter.json
+#  notify:
+#    - restart grafana
