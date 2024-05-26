@@ -14,6 +14,6 @@
 - name: Create index.html
   ansible.builtin.template:
     src: index.html.j2
-    dest: /usr/share/nginx/html/index.html
+    dest: /var/www/html/index.nginx-debian.html
   notify:
     - Reload nginx
