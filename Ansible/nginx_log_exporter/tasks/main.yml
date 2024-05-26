@@ -5,3 +5,5 @@
     name: nginx-prometheus-log-exporter
     state: latest
     update_cache: yes
+  notify: 
+    - restarted Nginx Log Exporter

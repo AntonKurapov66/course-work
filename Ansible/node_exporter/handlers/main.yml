@@ -4,4 +4,5 @@
   systemd:
     name: prometheus-node-exporter
     state: restarted
-  listen: "restart node exporter"
+    enabled: yes
+    daemon_reload: yes
