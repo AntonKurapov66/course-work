@@ -20,16 +20,9 @@
     enabled: yes
     state: started
 
-- name: Добавление источника данных Prometheus в Grafana
-  grafana_datasource:
-    ds_url: "http://{{ hostvars['prometheus-server']['ansible_host'] }}:9090"
-    name: Prometheus
-    ds_type: prometheus
-    state: present
-    access: proxy   
-    basic_auth_user: 'username'
-    basic_auth_password: 'password'
-    with_credentials: no
-    is_default: yes
-    sslmode: 'disable'
-  delegate_to: localhost
+- name: Копирование файла конфигурации источника данных Prometheus для Grafana
+  template:
+    src: prometheus.yml.j2
+    dest: /etc/grafana/provisioning/datasources/prometheus.yml
+  notify:
+    - restart grafana
