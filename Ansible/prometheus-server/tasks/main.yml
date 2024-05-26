@@ -1,2 +1,38 @@
 ---
 # tasks file for prometheus-server
+- name: Создание пользователя для Prometheus
+  user:
+    name: prometheus
+    shell: /bin/false
+    comment: "Prometheus service account"
+    system: yes
+
+- name: Скачивание и распаковка Prometheus
+  unarchive:
+    src: https://github.com/prometheus/prometheus/releases/download/v2.35.0/prometheus-2.35.0.linux-amd64.tar.gz
+    dest: /opt
+    remote_src: yes
+    owner: prometheus
+    group: prometheus
+
+- name: Копирование systemd юнита для Prometheus
+  template:
+    src: prometheus.service.j2
+    dest: /etc/systemd/system/prometheus.service
+  notify: Запуск Prometheus
+
+- name: Создание директорий для конфигураций и данных Prometheus
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: prometheus
+    group: prometheus
+  loop:
+    - /etc/prometheus
+    - /var/lib/prometheus
+
+- name: Размещение конфигурационного файла Prometheus
+  template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+  notify: Reload Prometheus
