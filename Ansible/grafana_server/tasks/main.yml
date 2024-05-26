@@ -29,7 +29,7 @@
 
 - name: Копирование дашбордов Grafana
   template:
-    src: Node_exporter.json.j2
+    src: Node_exporter.json
     dest: /etc/grafana/provisioning/dashboards/Node_exporter.json
   notify:
     - restart grafana
