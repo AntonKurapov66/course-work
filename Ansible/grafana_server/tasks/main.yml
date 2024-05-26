@@ -29,7 +29,7 @@
 
 - name: Копирование дашбордов Grafana
   copy:
-    src: Node_exporter.json
+    src: ~/course-work/Ansible/grafana_server/templates/Node_exporter.json
     dest: /etc/grafana/provisioning/dashboards/Node_exporter.json
     owner: grafana
     group: grafana
