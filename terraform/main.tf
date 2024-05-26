@@ -306,6 +306,8 @@ resource "yandex_alb_virtual_host" "my-virtual-host" {
 resource "yandex_alb_load_balancer" "web-alb" {
   name = "web-alb"
   network_id  = yandex_vpc_network.vpc.id 
+  security_group_ids = ["${yandex_vpc_security_group.internal.id}","${yandex_vpc_security_group.public-load-balancer.id}"] 
+
   allocation_policy {
     location {
       zone_id   = "ru-central1-a"
