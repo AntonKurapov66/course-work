@@ -34,7 +34,5 @@
     owner: grafana
     group: grafana
     mode: 0644
-  with_items:
-    - system_metrics
   notify:
     - restart grafana
