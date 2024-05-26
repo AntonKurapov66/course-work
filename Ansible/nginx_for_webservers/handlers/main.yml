@@ -1,2 +1,6 @@
 ---
 # handlers file for nginx_for_webservers
+- name: Reload nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: reloaded
