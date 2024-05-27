@@ -1,0 +1,9 @@
+[Unit]
+Description=Nginx Log Exporter
+
+[Service]
+User=super_user
+ExecStart=/opt/prometheus_nginxlog_exporter/nginx-log-exporter --log-file=/var/log/nginx/access.log
+
+[Install]
+WantedBy=multi-user.target
