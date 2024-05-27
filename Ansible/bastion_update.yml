@@ -30,3 +30,11 @@
         jump: MASQUERADE
         out_interface: "eth0"
         state: present
+
+    - name: Копирование id_rsa чтобы можно было находясь на bastion-host легко ходить на все остальные ВМ
+      copy:
+        src: ~/.ssh/id_rsa
+        dest: ~/.ssh/id_rsa
+        owner: super_user
+        group: super_user
+        mode: 0600
