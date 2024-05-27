@@ -10,7 +10,7 @@
 - name: Скачивание архива Nginx Log Exporter
   get_url:
     url: "https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v{{ prometheus_nginxlog_exporter_version }}/prometheus-nginxlog-exporter_{{ prometheus_nginxlog_exporter_version }}_linux_amd64.tar.gz"
-    dest: "/tmp/prometheus-nginxlog-exporter.tar.gz"
+    dest: "/tmp/prometheus_nginxlog_exporter.tar.gz"
 
 - name: Создание директории для Nginx Log Exporter
   file:
