@@ -1,6 +1,6 @@
 ---
 - name: Deploy Kibana 
-  hosts: grafana-server
+  hosts: kibana-server
   become: yes
   roles:
     - kibana_server
