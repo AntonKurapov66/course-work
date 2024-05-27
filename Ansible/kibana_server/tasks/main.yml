@@ -11,7 +11,7 @@
 
 - name: Включение и запуск Grafana
   systemd:
-    name: kibana-server
+    name: kibana
     enabled: yes
     state: started
     daemon_reload: true
