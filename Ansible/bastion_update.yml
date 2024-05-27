@@ -33,8 +33,8 @@
 
     - name: Копирование id_rsa чтобы можно было находясь на bastion-host легко ходить на все остальные ВМ
       copy:
-        src: ~/.ssh/id_rsa
-        dest: ~/.ssh/id_rsa
+        src: /home/admin/.ssh/id_rsa
+        dest: /home/super_user/.ssh/id_rsa
         owner: super_user
         group: super_user
         mode: 0600
