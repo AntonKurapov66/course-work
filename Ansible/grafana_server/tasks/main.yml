@@ -27,6 +27,12 @@
   notify:
     - restart grafana
 
+- name: Скачать JSON дашборда
+  get_url:
+    url: https://grafana.com/api/dashboards/1860/revisions/37/download
+    dest: /tmp/node_exporter_full.json
+    validate_certs: no
+
 - name: Импорт дашборда в Grafana
   community.grafana.grafana_dashboard:
     url: http://{{ grafana_external_ip }}:3000
@@ -35,7 +41,6 @@
     state: present
     commit_message: "Imported by Ansible"
     overwrite: true
-    path: "{{ lookup('url', 'https://grafana.com/api/dashboards/1860/revisions/37/download', validate_certs=False) }}"
-    validate_certs: no
+    path: /tmp/node_exporter_full.json
   notify:
     - restart grafana
