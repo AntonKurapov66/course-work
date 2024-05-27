@@ -1,5 +1,5 @@
 ---
-# tasks file for grafana_server
+# tasks file for kibana_server
 - name: Обновление кэша репозиториев
   apt:
     update_cache: yes
@@ -9,14 +9,14 @@
       deb: "https://mirror.yandex.ru/mirrors/elastic/7/pool/main/k/kibana/kibana-7.15.0-amd64.deb"
       state: present
 
-- name: Включение и запуск Grafana
+- name: Включение и запуск Kibana
   systemd:
     name: kibana
     enabled: yes
     state: started
     daemon_reload: true
 
-- name: Копирование файла конфигурации источника данных Prometheus для Grafana
+- name: Копирование файла конфигурации Kibana
   template:
     src: kibana.yml.j2
     dest: /etc/kibana/kibana.yml

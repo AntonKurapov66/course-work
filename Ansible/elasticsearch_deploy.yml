@@ -1,0 +1,6 @@
+---
+- name: Deploy elasticsearch 
+  hosts: elasticsearch-server
+  become: yes
+  roles:
+    - elasticsearch_server

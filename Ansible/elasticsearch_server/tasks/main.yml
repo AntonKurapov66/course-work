@@ -1,2 +1,24 @@
 ---
-# tasks file for elasticsearch-server
+# tasks file for elasticsearch_server
+- name: Обновление кэша репозиториев
+  apt:
+    update_cache: yes
+
+- name: Установка деб-пакета elasticsearch
+  apt:
+      deb: "https://mirror.yandex.ru/mirrors/elastic/7/pool/main/e/elasticsearch/elasticsearch-7.15.0-amd64.deb"
+      state: present
+
+- name: Включение и запуск elasticsearch
+  systemd:
+    name: elasticsearch
+    enabled: yes
+    state: started
+    daemon_reload: true
+
+- name: Копирование файла конфигурации elasticsearch
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
+  notify:
+    - restart elasticsearch
