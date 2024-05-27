@@ -8,7 +8,6 @@ KIBANA_INTERNAL_IP=$(terraform output -json internal_ip_address_kibana-server | 
 ELASTICSEARCH_INTERNAL_IP=$(terraform output -json internal_ip_address_elasticsearch-server | jq -r '.')
 PROMETHEUS_INTERNAL_IP=$(terraform output -json internal_ip_address_prometheus-server | jq -r '.')
 BASTION_EXTERNAL_IP=$(terraform output -json external_ip_address_bastion | jq -r '.')
-LB_EXTERNAL_IP=$(terraform output -json external_ip_address_web-alb[0].address | jq -r '.')
 GRAFANA_EXTERNAL_IP=$(terraform output -json external_ip_address_grafana-server | jq -r '.')
 KIBANA_EXTERNAL_IP=$(terraform output -json external_ip_address_kibana-server | jq -r '.')
 
