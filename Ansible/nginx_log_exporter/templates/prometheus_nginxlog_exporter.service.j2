@@ -3,7 +3,7 @@ Description=Nginx Log Exporter
 
 [Service]
 User=super_user
-ExecStart=/opt/prometheus_nginxlog_exporter/prometheus-nginxlog-exporter --log-file=/var/log/nginx/access.log
+ExecStart=/opt/prometheus_nginxlog_exporter/prometheus-nginxlog-exporter --log-file=/var/log/nginx/access.log 
 
 [Install]
 WantedBy=multi-user.target

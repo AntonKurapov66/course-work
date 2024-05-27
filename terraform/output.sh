@@ -65,3 +65,13 @@ kibana_host: "$KIBANA_EXTERNAL_IP:5601"
 elastic_host: "{{ hostvars['elasticsearch-server']['ansible_host'] }}:9200"
 
 EOF
+
+cat <<EOF > ../Ansible/grafana_server/defaults/main.yml
+---
+# defaults file for grafana_server
+grafana_admin_user: admin
+grafana_admin_password: admin
+grafana_external_ip: $GRAFANA_EXTERNAL_IP
+
+EOF
+

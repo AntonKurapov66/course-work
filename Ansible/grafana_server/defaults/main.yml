@@ -2,4 +2,3 @@
 # defaults file for grafana_server
 grafana_admin_user: admin
 grafana_admin_password: admin
-#prometheus_url: http://{{ hostvars['prometheus-server']['ansible_host'] }}:9090

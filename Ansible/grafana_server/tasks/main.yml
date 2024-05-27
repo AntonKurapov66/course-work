@@ -27,12 +27,14 @@
   notify:
     - restart grafana
 
-- name: Копирование дашбордов Grafana
-  copy:
-    src: ~/course-work/Ansible/grafana_server/templates/Node_exporter.json
-    dest: /etc/grafana/provisioning/dashboards/Node_exporter.json
-    owner: grafana
-    group: grafana
-    mode: 0644
+- name: Импорт дашборда в Grafana
+  grafana_dashboard:
+    grafana_url: http://{{ grafana_external_ip }}:3000
+    grafana_user: {{ grafana_admin_user }}
+    grafana_password: {{ grafana_admin_password }}
+    state: present
+    message: "Imported by Ansible"
+    overwrite: yes
+    dashboard: "{{ lookup('url', 'https://grafana.com/api/dashboards/1860/revisions/37/download', validate_certs=False) }}"
   notify:
     - restart grafana
