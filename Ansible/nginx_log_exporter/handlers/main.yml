@@ -1,6 +1,6 @@
 ---
 # handlers file for nginx_log_exporter
-- name: Start prometheus-nginxlog-exporter
+- name: Start prometheus_nginxlog_exporter
   systemd:
     name: prometheus-nginxlog-exporter
     state: started
