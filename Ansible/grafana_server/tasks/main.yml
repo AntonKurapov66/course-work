@@ -28,13 +28,14 @@
     - restart grafana
 
 - name: Импорт дашборда в Grafana
-  grafana_dashboard:
-    grafana_url: http://{{ grafana_external_ip }}:3000
-    grafana_user: "{{ grafana_admin_user }}"
-    grafana_password: "{{ grafana_admin_password }}"
+  community.grafana.grafana_dashboard:
+    url: http://{{ grafana_external_ip }}:3000
+    url_user: "{{ grafana_admin_user }}"
+    url_password: "{{ grafana_admin_password }}"
     state: present
-    message: "Imported by Ansible"
-    overwrite: yes
-    dashboard: "{{ lookup('url', 'https://grafana.com/api/dashboards/1860/revisions/37/download', validate_certs=False) }}"
+    commit_message: "Imported by Ansible"
+    overwrite: true
+    path: "{{ lookup('url', 'https://grafana.com/api/dashboards/1860/revisions/37/download', validate_certs=False) }}"
+    validate_certs: no
   notify:
     - restart grafana
