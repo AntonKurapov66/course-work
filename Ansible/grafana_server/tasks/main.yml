@@ -30,8 +30,8 @@
 - name: Импорт дашборда в Grafana
   grafana_dashboard:
     grafana_url: http://{{ grafana_external_ip }}:3000
-    grafana_user: {{ grafana_admin_user }}
-    grafana_password: {{ grafana_admin_password }}
+    grafana_user: "{{ grafana_admin_user }}"
+    grafana_password: "{{ grafana_admin_password }}"
     state: present
     message: "Imported by Ansible"
     overwrite: yes
