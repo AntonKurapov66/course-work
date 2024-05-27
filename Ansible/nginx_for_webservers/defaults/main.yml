@@ -1,5 +1,11 @@
 ---
 # defaults file for nginx_for_webservers
 page_title: "Добро пожаловать на мой сайт"
-content_heading: "Сайт для практики"
-content_body: "Этот сайт был создан для проверки знаний"
+content_heading: "Информационный сайт по курсовой работе"
+content_body: "*ссылки на внешние сервисы, которые доступны из интернета"
+
+bastion_host_info: "bastion-host внешний IP :178.154.231.83"
+
+grafana_info: "UI Grafana доступна по адресу: http://178.154.229.246:3000"
+kibana_info: "UI Kibana доступна по адресу: http://84.201.159.116:5601"
+
