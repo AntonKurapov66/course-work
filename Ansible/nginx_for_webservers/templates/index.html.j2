@@ -11,7 +11,14 @@
 <body>
     <h1>"INFO"</h1>
     <p>{{ bastion_host_info }}</p>
-    <p>{{ grafana_info }}</p>
-    <p>{{ kibana_info }}</p>
+    <p>Прямая ссылка на web-Grafana:<a href="{{ grafana_info }}">{{ grafana_info }}</a></p>
+    <p>Прямая ссылка на web-Kibana:<a href="{{ kibana_info }}">{{ kibana_info }}</a></p>
+    <h1>"INTERNAL_IP"</h1>
+    <p>webserver-1:{{ hostvars['webserver-1']['ansible_host'] }}</p>
+    <p>webserver-2:{{ hostvars['webserver-2']['ansible_host'] }}</p>
+    <p>elasticsearch-server:{{ hostvars['elasticsearch-server']['ansible_host'] }}</p>
+    <p>kibana-server:{{ hostvars['kibana-server']['ansible_host'] }}</p>
+    <p>prometheus-server:{{ hostvars['prometheus-server']['ansible_host'] }}</p>
+    <p>grafana-server{{ hostvars['kibana-server']['ansible_host'] }}</p>
 </body>
 </html>

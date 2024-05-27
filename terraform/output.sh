@@ -53,7 +53,15 @@ content_body: "*ссылки на внешние сервисы, которые 
 
 bastion_host_info: "bastion-host внешний IP :$BASTION_EXTERNAL_IP"
 
-grafana_info: "UI Grafana доступна по адресу: http://$GRAFANA_EXTERNAL_IP:3000"
-kibana_info: "UI Kibana доступна по адресу: http://$KIBANA_EXTERNAL_IP:5601"
+grafana_info: "http://$GRAFANA_EXTERNAL_IP:3000"
+kibana_info: "http://$KIBANA_EXTERNAL_IP:5601"
+
+EOF
+
+cat <<EOF > ../Ansible/filebeat/vars/main.yml
+---
+# vars file for filebeat
+kibana_host: "$KIBANA_EXTERNAL_IP:5601"
+elastic_host: "{{ hostvars['elasticsearch-server']['ansible_host'] }}:9200"
 
 EOF
