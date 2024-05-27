@@ -1,2 +1,6 @@
 ---
 # handlers file for filebeat
+- name: restart filebeat
+  systemd:
+    name: filebeat
+    state: restarted

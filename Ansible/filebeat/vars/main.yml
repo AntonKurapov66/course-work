@@ -1,2 +1,4 @@
 ---
 # vars file for filebeat
+kibana_host: "{{ hostvars['kibana-server']['ansible_host'] }}:5601"
+elastic_host: "{{ hostvars['elasticsearch-server']['ansible_host'] }}:9200"

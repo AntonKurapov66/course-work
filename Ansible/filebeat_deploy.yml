@@ -1,0 +1,6 @@
+---
+- name: Deploy Filebeat
+  hosts: webservers
+  become: yes
+  roles:
+    - filebeat
