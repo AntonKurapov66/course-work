@@ -1,2 +1,3 @@
 ---
 # vars file for kibana_server
+elastic_httphost: "{{ hostvars['elasticsearch-server']['ansible_host'] }}:9200"

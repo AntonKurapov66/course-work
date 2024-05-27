@@ -1,2 +1,6 @@
 ---
-# handlers file for kibana_server
+# handlers file for grafana_server
+- name: restart kibana
+  systemd:
+    name: grafana-server
+    state: restarted
