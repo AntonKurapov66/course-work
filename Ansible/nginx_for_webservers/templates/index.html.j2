@@ -9,7 +9,7 @@
     <p>{{ content_body }}</p>
 </body>
 <body>
-    <h1>"INFO"</h1>
+    <h1>"EXTERNAL_IP"</h1>
     <p>{{ bastion_host_info }}</p>
     <p>Прямая ссылка на web-Grafana:<a href="{{ grafana_info }}">{{ grafana_info }}</a></p>
     <p>Прямая ссылка на web-Kibana:<a href="{{ kibana_info }}">{{ kibana_info }}</a></p>
@@ -19,6 +19,6 @@
     <p>elasticsearch-server:{{ hostvars['elasticsearch-server']['ansible_host'] }}</p>
     <p>kibana-server:{{ hostvars['kibana-server']['ansible_host'] }}</p>
     <p>prometheus-server:{{ hostvars['prometheus-server']['ansible_host'] }}</p>
-    <p>grafana-server{{ hostvars['kibana-server']['ansible_host'] }}</p>
+    <p>grafana-server:{{ hostvars['kibana-server']['ansible_host'] }}</p>
 </body>
 </html>
