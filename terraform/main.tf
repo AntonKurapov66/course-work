@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "webserver-1" {
   resources {
     core_fraction = 50 
     cores  = 2
-    memory = 4
+    memory = 2
   }
   boot_disk {
     initialize_params {
@@ -61,7 +61,7 @@ resource "yandex_compute_instance" "webserver-2" {
   resources {
     core_fraction = 50
     cores  = 2
-    memory = 4
+    memory = 2
   }
   boot_disk {
     initialize_params {
@@ -85,7 +85,7 @@ resource "yandex_compute_instance" "prometheus-server" {
   platform_id = "standard-v3"
   zone = "ru-central1-a"
   resources {
-    core_fraction = 100 
+    core_fraction = 50 
     cores  = 2
     memory = 4
   }
@@ -118,7 +118,7 @@ resource "yandex_compute_instance" "elasticsearch-server" {
   boot_disk {
     initialize_params {
       image_id = "fd8idq8k33m9hlj0huli"
-      size     = 100
+      size     = 50
       type     = "network-hdd"
     }
   }
