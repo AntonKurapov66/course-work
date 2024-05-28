@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "webserver-1" {
   platform_id = "standard-v3"
   zone = "ru-central1-b"
   resources {
-    core_fraction = 100 
+    core_fraction = 50 
     cores  = 2
     memory = 4
   }
@@ -59,7 +59,7 @@ resource "yandex_compute_instance" "webserver-2" {
   platform_id = "standard-v3"
   zone = "ru-central1-a"
   resources {
-    core_fraction = 100 
+    core_fraction = 50
     cores  = 2
     memory = 4
   }
@@ -137,7 +137,7 @@ resource "yandex_compute_instance" "kibana-server" {
   platform_id = "standard-v3"
   zone = "ru-central1-a"
   resources {
-    core_fraction = 100 
+    core_fraction = 50 
     cores  = 2
     memory = 4
   }
@@ -163,7 +163,7 @@ resource "yandex_compute_instance" "grafana-server" {
   platform_id = "standard-v3"
   zone = "ru-central1-a"
   resources {
-    core_fraction = 100 
+    core_fraction = 50 
     cores  = 2
     memory = 2
   }

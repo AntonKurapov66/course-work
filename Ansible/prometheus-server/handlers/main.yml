@@ -6,6 +6,8 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
+  tags:
+    - restart service
 
 - name: Start Prometheus
   systemd:

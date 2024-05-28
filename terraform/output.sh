@@ -58,6 +58,8 @@ kibana_info: "http://$KIBANA_EXTERNAL_IP:5601"
 
 EOF
 
+# Добавляем данные в var/main.yml для filebeat 
+
 cat <<EOF > ../Ansible/filebeat/vars/main.yml
 ---
 # vars file for filebeat
@@ -65,6 +67,8 @@ kibana_host: "$KIBANA_EXTERNAL_IP:5601"
 elastic_host: "{{ hostvars['elasticsearch-server']['ansible_host'] }}:9200"
 
 EOF
+
+# Добавляем данные в defaults/main.yml для Grafana 
 
 cat <<EOF > ../Ansible/grafana_server/defaults/main.yml
 ---
