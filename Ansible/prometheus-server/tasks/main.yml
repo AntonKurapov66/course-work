@@ -31,6 +31,15 @@
     - /etc/prometheus
     - /var/lib/prometheus
 
+- name: Создание пустого файла логов 
+  file:
+    path: "/var/log/prometheus/prometheus.log" 
+    state: touch
+    owner: "prometheus"  
+    group: "prometheus" 
+    mode: '0644'
+
+
 - name: Размещение конфигурационного файла Prometheus
   template:
     src: prometheus.yml.j2
