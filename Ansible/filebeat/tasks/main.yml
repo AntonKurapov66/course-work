@@ -24,7 +24,7 @@
   loop:
     - /var/log/nginx/access.log
     - /var/log/nginx/error.log  
-  when: inventory_hostname == webservers 
+  when: inventory_hostname in groups['webservers'] 
 
 - name: Изменение прав доступа log-файлов prometheus
   ansible.builtin.file:
