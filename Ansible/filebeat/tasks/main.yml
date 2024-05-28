@@ -33,7 +33,34 @@
     state: file
   loop:
     - /var/log/prometheus/prometheus.log 
-  when: inventory_hostname == 'prometheus-server'               
+  when: inventory_hostname == 'prometheus-server' 
+
+- name: Изменение прав доступа log-файлов elasticsearch
+  ansible.builtin.file:
+    path: "{{ item }}"                    
+    mode: '0644'                      
+    state: file
+  loop:
+    - /var/log/elasticsearch/elasticsearch.log
+  when: inventory_hostname == 'elasticsearch-server'  
+
+- name: Изменение прав доступа log-файлов kibana
+  ansible.builtin.file:
+    path: "{{ item }}"                    
+    mode: '0644'                      
+    state: file
+  loop:
+    - /var/log/kibana/kibana.log
+  when: inventory_hostname == 'kibana-server'
+
+- name: Изменение прав доступа log-файлов grafana
+  ansible.builtin.file:
+    path: "{{ item }}"                    
+    mode: '0644'                      
+    state: file
+  loop:
+    - /var/log/grafana/grafana.log
+  when: inventory_hostname == 'grafana-server'                       
 
 - name: Копирование файла конфигурации filebeat
   template:
