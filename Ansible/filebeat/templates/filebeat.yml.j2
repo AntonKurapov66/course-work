@@ -6,6 +6,41 @@ filebeat.inputs:
   paths:
     - /var/log/nginx/access.log
     - /var/log/nginx/error.log
+  fields:
+    service: nginx
+  fields_under_root: true
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/elasticsearch/elasticsearch.log
+  fields:
+    service: elasticsearch
+  fields_under_root: true
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/kibana/kibana.log
+  fields:
+    service: kibana
+  fields_under_root: true
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/grafana/grafana.log
+  fields:
+    service: grafana
+  fields_under_root: true
+
+- type: log
+  enabled: true
+  paths:
+    - /var/log/prometheus/prometheus.log
+  fields:
+    service: prometheus
+  fields_under_root: true
 
 #============================= Filebeat modules ===============================
 
@@ -27,3 +62,19 @@ setup.kibana:
 
 output.elasticsearch:
   hosts: ["{{elastic_host}}"]
+  indices:
+    - index: "nginx-logs-%{+yyyy.MM.dd}"
+      when.contains:
+        service: "nginx"
+    - index: "elasticsearch-logs-%{+yyyy.MM.dd}"
+      when.contains:
+        service: "elasticsearch"
+    - index: "kibana-logs-%{+yyyy.MM.dd}"
+      when.contains:
+        service: "kibana"
+    - index: "grafana-logs-%{+yyyy.MM.dd}"
+      when.contains:
+        service: "grafana"
+    - index: "prometheus-logs-%{+yyyy.MM.dd}"
+      when.contains:
+        service: "prometheus"

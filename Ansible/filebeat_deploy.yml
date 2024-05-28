@@ -1,6 +1,6 @@
 ---
 - name: Deploy Filebeat
-  hosts: webservers
+  hosts: non_bastion
   become: yes
   roles:
     - filebeat
