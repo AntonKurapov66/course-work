@@ -459,3 +459,20 @@ resource "yandex_vpc_security_group" "public-load-balancer" {
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+#Снепшот дисков 
+
+resource "yandex_compute_snapshot_schedule" "my-snapshot-disk" {
+  name           = "my-snapshot-disk"
+  schedule_policy {
+	expression = "17 0 * * *"
+  }
+  snapshot_count = 1
+  retention_period = "12h"
+  labels = {
+    my-label = "my-label-value"
+  }
+
+  disk_ids = ["${yandex_compute_instance.webserver-1.boot_disk.0.disk_id}","${yandex_compute_instance.webserver-2.boot_disk.0.disk_id}","${yandex_compute_instance.bastion.boot_disk.0.disk_id}","${yandex_compute_instance.prometheus-server.boot_disk.0.disk_id}","${yandex_compute_instance.elasticsearch-server.boot_disk.0.disk_id}","${yandex_compute_instance.kibana-server.boot_disk.0.disk_id}","${yandex_compute_instance.grafana-server.boot_disk.0.disk_id}"]
+  depends_on = [yandex_alb_load_balancer.web-alb]
+} 
