@@ -63,18 +63,18 @@ setup.kibana:
 output.elasticsearch:
   hosts: ["{{elastic_host}}"]
   indices:
-    - index: "nginx-logs-%{+yyyy.MM.dd}"
+    - index: "nginx-logs"
       when.contains:
         service: "nginx"
-    - index: "elasticsearch-logs-%{+yyyy.MM.dd}"
+    - index: "elasticsearch-logs"
       when.contains:
         service: "elasticsearch"
-    - index: "kibana-logs-%{+yyyy.MM.dd}"
+    - index: "kibana-logs"
       when.contains:
         service: "kibana"
-    - index: "grafana-logs-%{+yyyy.MM.dd}"
+    - index: "grafana-logs"
       when.contains:
         service: "grafana"
-    - index: "prometheus-logs-%{+yyyy.MM.dd}"
+    - index: "prometheus-logs"
       when.contains:
         service: "prometheus"
