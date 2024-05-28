@@ -465,7 +465,7 @@ resource "yandex_vpc_security_group" "public-load-balancer" {
 resource "yandex_compute_snapshot_schedule" "my-snapshot-disk" {
   name           = "my-snapshot-disk"
   schedule_policy {
-	expression = "17 0 * * *"
+	expression = "17 35 * * *"
   }
   snapshot_count = 1
   retention_period = "12h"
