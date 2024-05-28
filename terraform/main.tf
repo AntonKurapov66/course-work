@@ -41,7 +41,7 @@ resource "yandex_compute_instance" "webserver-1" {
     initialize_params {
       image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
-      type     = "network-ssd"
+      type     = "network-hdd"
     }
   }
   network_interface {
@@ -67,7 +67,7 @@ resource "yandex_compute_instance" "webserver-2" {
     initialize_params {
       image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
-      type     = "network-ssd"
+      type     = "network-hdd"
     }
   }
   network_interface {
@@ -93,7 +93,7 @@ resource "yandex_compute_instance" "prometheus-server" {
     initialize_params {
       image_id = "fd8idq8k33m9hlj0huli"
       size     = 30
-      type     = "network-ssd"
+      type     = "network-hdd"
     }
   }
   network_interface {
