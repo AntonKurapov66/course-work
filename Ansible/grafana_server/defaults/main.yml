@@ -1,6 +1,2 @@
----
-# defaults file for grafana_server
-grafana_admin_user: admin
-grafana_admin_password: admin
-grafana_external_ip: 51.250.85.251
+#формируется посредством запуска output.sh в директории terraform
 

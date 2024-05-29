@@ -1,5 +1,2 @@
----
-# vars file for filebeat
-kibana_host: "158.160.108.198:5601"
-elastic_host: "{{ hostvars['elasticsearch-server']['ansible_host'] }}:9200"
+#формируется посредством запуска output.sh в директории terraform
 
