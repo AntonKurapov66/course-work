@@ -57,5 +57,42 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 * С помощью скрипта https://github.com/AntonKurapov66/course-work/blob/main/terraform/output.sh формируется inventory.ini и некоторые yml-файлы ролей для Ansible.
 * С помощью playbook  https://github.com/AntonKurapov66/course-work/blob/main/Ansible/bastion_update.yml происходит настройка bastion-host 
 * Все ansible playbooks запускаются автоматически с помощью скрипта https://github.com/AntonKurapov66/course-work/blob/main/Ansible/run_playbooks_deploy.sh 
-  * в playbook по графане во время развертки необходимо войти в веб и авторизироваться под admin, это необходимо чтобы таска по добавлению дашборда отработала. 
+  * во время выполнения playbook по графане необходимо вначале войти в веб и авторизироваться под admin, это необходимо чтобы таска по добавлению дашборда отработала. 
 * Shapshot расписание поднимается так же через terraform 
+
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_0.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_3.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_3_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_3_2.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_2.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_2_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_4.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/01_4_1.PNG)
+
+### Сайт
+
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/02_5.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/02_4.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/02_0.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/02_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/02_2.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/02_3.PNG)
+
+### Мониторинг
+
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/03_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/03_2.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/03_3.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/03_0.PNG)
+
+### Логи 
+
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/04_0.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/04_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/04_2_1.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/04_2_2.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/04_2_3.PNG)
+  * ![alt text](https://github.com/AntonKurapov66/course-work/blob/main/img/04_2.PNG)
+
+* дополнительно настроил отслеживание логом prometheus, elasticsearch, kibana, grafana.
