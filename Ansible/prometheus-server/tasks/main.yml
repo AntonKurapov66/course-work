@@ -30,6 +30,7 @@
   loop:
     - /etc/prometheus
     - /var/lib/prometheus
+    - /var/log/prometheus
 
 - name: Создание пустого файла логов 
   file:
