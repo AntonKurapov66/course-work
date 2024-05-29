@@ -26,7 +26,7 @@
 
 ### Логи
 
-Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
+Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch. /n
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
 
 ### Сеть
@@ -51,10 +51,11 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## Выполнение
 
-### Инфраструктура 
+### Инфраструктура - Сеть - Резервное копирование 
 
 * Вся инфраструктура поднимается с помощью файла https://github.com/AntonKurapov66/course-work/blob/main/terraform/main.tf 
 * С помощью скрипта https://github.com/AntonKurapov66/course-work/blob/main/terraform/output.sh формируется inventory.ini и некоторые yml-файлы ролей для Ansible.
 * С помощью playbook  https://github.com/AntonKurapov66/course-work/blob/main/Ansible/bastion_update.yml происходит настройка bastion-host 
 * Все ansible playbooks запускаются автоматически с помощью скрипта https://github.com/AntonKurapov66/course-work/blob/main/Ansible/run_playbooks_deploy.sh 
   * в playbook по графане во время развертки необходимо войти в веб и авторизироваться под admin, это необходимо чтобы таска по добавлению дашборда отработала. 
+* Shapshot расписание поднимается так же через terraform 
