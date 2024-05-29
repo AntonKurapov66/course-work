@@ -8,8 +8,8 @@ PLAYBOOKS=(
 #  nginx_log_ex_deploy.yml
   grafana_deploy.yml
   elasticsearch_deploy.yml
-  filebeat_deploy.yml
   kibana_deploy.yml
+  filebeat_deploy.yml
 )
 
 for playbook in "${PLAYBOOKS[@]}"; do
