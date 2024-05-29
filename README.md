@@ -47,3 +47,14 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Можно добавить в Grafana оповещения с помощью Grafana alerts. Как вариант, можно также установить Alertmanager в ВМ к Prometheus, настроить оповещения через него.
 В Elasticsearch добавьте мониторинг логов самого себя, Kibana, Prometheus, Grafana через filebeat. Можно использовать logstash тоже.
 Воспользуйтесь Yandex Certificate Manager, выпустите сертификат для сайта, если есть доменное имя. Перенастройте работу балансера на HTTPS, при этом нацелен он будет на HTTP веб-серверов.
+
+
+## Выполнение
+
+### Инфраструктура 
+
+* Вся инфраструктура поднимается с помощью файла https://github.com/AntonKurapov66/course-work/blob/main/terraform/main.tf 
+* С помощью скрипта https://github.com/AntonKurapov66/course-work/blob/main/terraform/output.sh формируется inventory.ini и некоторые yml-файлы ролей для Ansible.
+* С помощью playbook  https://github.com/AntonKurapov66/course-work/blob/main/Ansible/bastion_update.yml происходит настройка bastion-host 
+* Все ansible playbooks запускаются автоматически с помощью скрипта https://github.com/AntonKurapov66/course-work/blob/main/Ansible/run_playbooks_deploy.sh 
+  * в playbook по графане во время развертки необходимо войти в веб и авторизироваться под admin, это необходимо чтобы таска по добавлению дашборда отработала. 
